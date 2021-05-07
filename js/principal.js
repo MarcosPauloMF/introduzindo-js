@@ -24,6 +24,7 @@ for(var i = 0; i < paciente.length; i++){
         console.log("peso invalido")
         pesoEhValido = false
         tdImc.textContent = "peso inválido"
+        paciente.classList.add("paciente-invalido")
     }
     
     
@@ -31,6 +32,7 @@ for(var i = 0; i < paciente.length; i++){
         console.log("altura invalido")
         alturaEhValida = false
         tdImc.textContent = "Altura invalida"
+        paciente.classList.add("paciente-invalido")
     }
     
     
@@ -38,8 +40,14 @@ for(var i = 0; i < paciente.length; i++){
         var imc = peso / (altura * altura)
         tdImc.textContent = imc.toFixed(2)
     }
-
 }
 
+var botaoAdicionar = document.querySelector("#adicionar-paciente")
+botaoAdicionar.addEventListener("click", function(event){
+    event.preventDefault()
+    console.log("seu guei2")
+})
 
-
+botaoAdicionar.addEventListener("click", function(){
+    console.log("seu guei")
+})

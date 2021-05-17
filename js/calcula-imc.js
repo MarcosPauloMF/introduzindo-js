@@ -28,7 +28,7 @@ for(var i = 0; i < paciente.length; i++){
     }
     
     
-    if (altura <= 0 || altura >= 4){
+    if (altura <= 0 || altura >= 400){
         console.log("altura invalido")
         alturaEhValida = false
         tdImc.textContent = "Altura invalida"
@@ -37,12 +37,15 @@ for(var i = 0; i < paciente.length; i++){
     
     
     if (alturaEhValida && pesoEhValido) {
-        var imc = peso / (altura * altura)
-        tdImc.textContent = imc.toFixed(2)
+        var imc = calculaIMC(peso, altura)
+        tdImc.textContent = imc
     }
 }
 
+function calculaIMC(peso, altura){
+    var imc = 0
 
-botaoAdicionar.addEventListener("click", function(){
-    console.log("seu botao foi clicado")
-})
+    imc = peso / (altura * altura)
+
+    return imc.toFixed(2)
+}

@@ -3,13 +3,24 @@ botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault()
     
     var form = document.querySelector("#form-adiciona")
-    // Extraindo informações do usuário
+    
     var paciente = obtemPacienteDoFormulario(form)
     
     console.log(paciente);
-    // cria a tr e td do paciente
-    var pacienteTr = montaTr(paciente)
     
+    var pacienteTr = montaTr(paciente)
+
+    var erros = validaPaciente(paciente)
+    
+    console.log(erros);
+
+    if(erros.length > 0){
+
+        exibeMensagensDeErro(erros)
+
+        return
+    }
+
     // adicionando o paciente na tabela
     var tabela = document.querySelector("#tabela-pacientes")
 
@@ -18,6 +29,14 @@ botaoAdicionar.addEventListener("click", function(event){
     form.reset()
 })
 
+function exibeMensagensDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro")
+    erros.forEach(function(erro){
+        var li = document.createElement("li")
+        li.textContent = erro
+        ul.appendChild(li)
+    })
+}
 
 function obtemPacienteDoFormulario(form){
 
@@ -50,4 +69,27 @@ function montaTd(dado, classe){
     td.textContent = dado
     td.classList.add(classe)
     return td
+}
+
+function validaPaciente(paciente){
+
+    var erros = []
+
+    if(paciente.nome.length == 0){
+        erros.push("O nome não pode ser vazio")
+    }
+
+    if(!validaPeso(paciente.peso)){
+        erros.push("Peso é inválido")
+    }
+
+    if(!validaAltura(paciente.altura)){
+        erros.push("Altura é invalida")
+    }
+
+    if(paciente.gordura.length == 0){
+        erros.push("A gordura do paciente não pode estar vazia")
+    }
+
+    return erros
 }

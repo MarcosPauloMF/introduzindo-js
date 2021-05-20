@@ -10,8 +10,6 @@
 	</head>
 	<body>
 
-
-
 		<header>
 			<div class="container">
 				<h1 class="titulo">Aparecida Nutrição</h1>
@@ -40,9 +38,17 @@
 						</tr>
 
 						<tr class="paciente" >
+							<td class="info-nome">Mark</td>
+							<td class="info-peso">90</td>
+							<td class="info-altura">1.76</td>
+							<td class="info-gordura">50</td>
+							<td class="info-imc">0</td>
+						</tr>
+
+						<tr class="paciente" >
 							<td class="info-nome">João</td>
-							<td class="info-peso">80</td>
-							<td class="info-altura">1.72</td>
+							<td class="info-peso">800000</td>
+							<td class="info-altura">-1.72</td>
 							<td class="info-gordura">40</td>
 							<td class="info-imc">0</td>
 						</tr>
@@ -62,6 +68,7 @@
 							<td class="info-gordura">24</td>
 							<td class="info-imc">0</td>
 						</tr>
+						
 						<tr class="paciente" >
 							<td class="info-nome">Tatiana</td>
 							<td class="info-peso">46</td>
@@ -78,6 +85,10 @@
 		<!-- ... -->
 		<section class="container">
 			<h2 id="titulo-form">Adicionar novo paciente</h2>
+			<ul id="mensagens-erro">
+
+			</ul>
+
 			<form id="form-adiciona">
 				<div class="grupo">
 					<label for="nome">Nome:</label>

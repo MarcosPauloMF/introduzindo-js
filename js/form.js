@@ -17,24 +17,27 @@ botaoAdicionar.addEventListener("click", function(event){
     if(erros.length > 0){
 
         exibeMensagensDeErro(erros)
-
         return
     }
-
-    // adicionando o paciente na tabela
+    
     var tabela = document.querySelector("#tabela-pacientes")
-
+    
     tabela.appendChild(pacienteTr)
-
+    
     form.reset()
+    var mensagensErro = document.querySelector("#mensagens-erro")
+    mensagensErro.innerHTML = ""
 })
 
 function exibeMensagensDeErro(erros){
     var ul = document.querySelector("#mensagens-erro")
+    ul.innerHTML = ""
+
     erros.forEach(function(erro){
         var li = document.createElement("li")
         li.textContent = erro
         ul.appendChild(li)
+
     })
 }
 
@@ -91,5 +94,14 @@ function validaPaciente(paciente){
         erros.push("A gordura do paciente não pode estar vazia")
     }
 
+    if(paciente.peso.length == 0){
+        erros.push("O campo de peso não pode estar vazio")
+    }
+
+    if(paciente.altura.length == 0){
+        erros.push("O campo de altura não pode estar vazio")
+    }
+
     return erros
+    
 }

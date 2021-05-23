@@ -1,12 +1,11 @@
 var titulo = document.querySelector(".titulo")
 titulo.textContent = "nutrição legal"
 
-var paciente = document.querySelectorAll(".paciente")
-console.log(paciente)
+var pacientes = document.querySelectorAll(".paciente")
 
-for(var i = 0; i < paciente.length; i++){
-    
-    var paciente = paciente[1]
+for (i = 0; i < pacientes.length; i++){
+
+    var paciente = pacientes[i]
 
     var tdPeso = paciente.querySelector(".info-peso")
     var peso = tdPeso.textContent
